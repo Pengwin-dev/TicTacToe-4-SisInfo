@@ -1,0 +1,6 @@
+﻿Tareas pendientes:
+
+- Debuggear y refactorizar el checkWin()
+- Implementar Modelo Vista-Controlador
+- Tener mas clases (responder al UML)
+- Usar submenus (ej: difficulties menu)
