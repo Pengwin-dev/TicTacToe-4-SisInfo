@@ -63,5 +63,7 @@ namespace TicTacToe3
             Console.WriteLine($"New board prepared. Total games in session so far: {this.TotalGames}");
 
         }
+
+
     }
 }

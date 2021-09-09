@@ -15,6 +15,49 @@ namespace TicTacToe3
 
         }
 
+        // tried to fix the bugged checkWin()
+        private static bool checkForWinner()
+
+        {
+            bool ans=false;
+            //rows
+            if (currentBoard.CurrentState[0] == currentBoard.CurrentState[1] && currentBoard.CurrentState[1] == currentBoard.CurrentState[2])
+            {
+                ans = true;
+            }
+            if (currentBoard.CurrentState[3] == currentBoard.CurrentState[4] && currentBoard.CurrentState[4] == currentBoard.CurrentState[5])
+            {
+                ans = true;
+            }
+            if (currentBoard.CurrentState[8] == currentBoard.CurrentState[7] && currentBoard.CurrentState[7] == currentBoard.CurrentState[8])
+            {
+                ans = true;
+            }
+            //columns
+            if (currentBoard.CurrentState[0] == currentBoard.CurrentState[3] && currentBoard.CurrentState[3] == currentBoard.CurrentState[6])
+            {
+                ans = true;
+            }
+            if (currentBoard.CurrentState[1] == currentBoard.CurrentState[4] && currentBoard.CurrentState[4] == currentBoard.CurrentState[7])
+            {
+                ans = true;
+            }
+            if (currentBoard.CurrentState[2] == currentBoard.CurrentState[5] && currentBoard.CurrentState[5] == currentBoard.CurrentState[8])
+            {
+                ans = true;
+            }
+            //diagonals
+            if (currentBoard.CurrentState[0] == currentBoard.CurrentState[4] && currentBoard.CurrentState[4] == currentBoard.CurrentState[8])
+            {
+                ans = true;
+            }
+            if (currentBoard.CurrentState[2] == currentBoard.CurrentState[4] && currentBoard.CurrentState[4] == currentBoard.CurrentState[6])
+            {
+                ans = true;
+            }
+           return ans;
+
+        }
         private static bool difficultiesMenu()
         {
             Console.Clear();
@@ -96,6 +139,7 @@ namespace TicTacToe3
                 currentBoard.TurnCount++;
                 currentPlayer.Turns++;
                 currentPlayer.movesChain.Add(move);
+                //dibuja la t abla
                 drawCurrentBoard();
                 if (checkWin() == false)
                 {
