@@ -10,11 +10,60 @@ namespace TicTacToe3
         private static List<string> tempChain;
         public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to TicTacToe Autism Edition v0.0001");
+            Console.WriteLine("Welcome to TicTacToe Autistic Edition v0.0001");
+            MainMenu();
+
+        }
+
+        private static bool difficultiesMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Choose your difficulty:");
+            Console.WriteLine("1) Easy");
+            Console.WriteLine("2) Medium");
+            Console.WriteLine("3) Hard");
+            Console.Write("\r\n Select an option: ");
+
+            return true;
+        }
+
+        private static bool MainMenu()
+        {
+
             currentBoard = new Board();
             tempChain = new List<string>(3);
             NewGame();
+            Console.Clear();
+            Console.WriteLine("Choose an game mode:");
+            Console.WriteLine("1) 1 vs 1");
+            Console.WriteLine("2) 1 vs PC");
+            Console.WriteLine("3) Online");
+            Console.Write("\r\n Select an option: ");
 
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    Console.WriteLine("1st Player: Get your nickname:");
+                    string nick = Console.ReadLine();
+                    Player p1 = new Player();
+                    p1.setName(nick);
+                    Console.WriteLine("2nt Player: Get your nickname:");
+                    nick = Console.ReadLine();
+                    Player p2 = new Player();
+                    p2.setName(nick);
+                    return true;
+
+                case "2":
+                    Console.WriteLine("Unimplemented Feature srry... we are working on that ^^'");
+                    return true;
+
+                case "3":
+                    Console.WriteLine("Unimplemented Feature srry... we are working on that ^^'");
+
+                    return false;
+                default:
+                    return true;
+            }
         }
 
         private static void NewGame()
