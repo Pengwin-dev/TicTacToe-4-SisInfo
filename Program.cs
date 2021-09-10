@@ -112,7 +112,8 @@ namespace TicTacToe3
         private static void NewGame()
         {
             currentBoard.NewGame();
-            currentPlayer = Shuffle();
+            //deberia ser un puntero a Player, y shuffle una funcion de saltar al otro jugador. (pares o algo similar)
+            currentPlayer = Shuffle(); // selecciona quien empieza.... 
             Console.WriteLine($"Board size is {currentBoard.Size}. Player {currentPlayer.Name} has the first turn:");
             drawCurrentBoard();
             processGame();
@@ -120,25 +121,27 @@ namespace TicTacToe3
 
         private static void processGame()
         {
-            if (currentBoard.TurnCount >= 9)
+            if (currentBoard.TurnCount >= 9) // || checkWinner()
             {
                 endGameDraw();
             }
+            // orden de casillas esta invertido :s
             Console.WriteLine($"{currentPlayer.Name}, enter the number from 1 to 9, each number indicates square on the board: ");
-            int fieldNumber = processInput(Console.ReadLine());
-            processMove(currentPlayer, fieldNumber);
+            int squareNumber = processInput(Console.ReadLine());
+            processMove(currentPlayer, squareNumber);
 
         }
 
-        private static void processMove(Player curPlayer, int move)
+        private static void processMove(Player curPlayer, int square)
         {
-            if (currentBoard.CurrentState[move - 1] == " ")
+            if (currentBoard.CurrentState[square - 1] == " ")
             {
-                Console.WriteLine($"{currentPlayer.Name} takes square {move}");
-                currentBoard.CurrentState[move - 1] = currentPlayer.Char;
+                Console.WriteLine($"{currentPlayer.Name} takes square {square}");
+                currentBoard.CurrentState[square - 1] = currentPlayer.Char;
                 currentBoard.TurnCount++;
                 currentPlayer.Turns++;
-                currentPlayer.movesChain.Add(move);
+                //movesChain: guarda los movimientos de un player.
+                currentPlayer.movesChain.Add(square);
                 //dibuja la t abla
                 drawCurrentBoard();
                 if (checkWin() == false)
@@ -153,7 +156,7 @@ namespace TicTacToe3
             }
             else
             {
-                Console.WriteLine($"Board square {move} is already occupied by \"{currentBoard.CurrentState[move - 1]}\"");
+                Console.WriteLine($"Board square {square} is already occupied by \"{currentBoard.CurrentState[square - 1]}\"");
                 processGame();
             }
         }

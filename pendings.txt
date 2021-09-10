@@ -1,0 +1,16 @@
+﻿Tareas pendientes:
+
+
+- Debuggear y refactorizar el checkWin() -- hecho a medias
+- Implementar Modelo Vista-Controlador --- nada
+- Tener mas clases (responder al UML) <----
+- Usar submenus (ej: difficulties menu) //// 
+- agregar la clase Game, con los metodos newGame, checkWinner, etc...
+- Verificar el NewGame de Board >:v
+- Implementar el GameLoop
+- metodo shuffle???
+- los turnos no deben depender de jugadores sino de Game.
+- implementar board como matriz\
+- el turno debe controlarse desde game y pasarse a las clases Board y Player 
+- processMove y processGame se llaman uno al otro xd
+- Board States con Enum (empty, token1, token2)
